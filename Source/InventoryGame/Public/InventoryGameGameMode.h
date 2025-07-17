@@ -7,7 +7,7 @@
 #include "InventoryGameGameMode.generated.h"
 
 /**
- *  Simple GameMode for a third person game
+ *  Simple GameMode for a first person game
  */
 UCLASS(abstract)
 class AInventoryGameGameMode : public AGameModeBase
@@ -15,8 +15,6 @@ class AInventoryGameGameMode : public AGameModeBase
 	GENERATED_BODY()
 
 public:
-	
-	/** Constructor */
 	AInventoryGameGameMode();
 };
 

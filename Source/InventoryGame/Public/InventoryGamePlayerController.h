@@ -3,20 +3,29 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/PlayerController.h"
+//#include "GameFramework/PlayerController.h"
+
+#include "Player/InventoryPlayerController.h"
+
 #include "InventoryGamePlayerController.generated.h"
 
 class UInputMappingContext;
 
 /**
- *  Basic PlayerController class for a third person game
- *  Manages input mappings
+ *  Simple first person Player Controller
+ *  Manages the input mapping context.
+ *  Overrides the Player Camera Manager class.
  */
 UCLASS(abstract)
-class AInventoryGamePlayerController : public APlayerController
+class INVENTORYGAME_API AInventoryGamePlayerController : public AInventoryPlayerController
 {
 	GENERATED_BODY()
 	
+public:
+
+	/** Constructor */
+	AInventoryGamePlayerController();
+
 protected:
 
 	/** Input Mapping Contexts */

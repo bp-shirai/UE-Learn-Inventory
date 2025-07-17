@@ -17,19 +17,17 @@ public class InventoryGame : ModuleRules
 			"AIModule",
 			"StateTreeModule",
 			"GameplayStateTreeModule",
-			"UMG"
+			"UMG",
+			"InventoryPlugin"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { });
 
 		PublicIncludePaths.AddRange(new string[] {
 			"InventoryGame/Public",
-			"InventoryGame/Public/Variant_Platforming",
-			"InventoryGame/Public/Variant_Combat",
-			"InventoryGame/Public/Variant_Combat/AI",
-			"InventoryGame/Public/Variant_SideScrolling",
-			"InventoryGame/Public/Variant_SideScrolling/Gameplay",
-			"InventoryGame/Public/Variant_SideScrolling/AI"
+			"InventoryGame/Public/Variant_Horror",
+			"InventoryGame/Public/Variant_Shooter",
+			"InventoryGame/Public/Variant_Shooter/AI"
 		});
 
 		// Uncomment if you are using Slate UI

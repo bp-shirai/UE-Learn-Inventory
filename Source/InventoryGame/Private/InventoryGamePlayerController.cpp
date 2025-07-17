@@ -5,12 +5,19 @@
 #include "EnhancedInputSubsystems.h"
 #include "Engine/LocalPlayer.h"
 #include "InputMappingContext.h"
+#include "InventoryGameCameraManager.h"
+
+AInventoryGamePlayerController::AInventoryGamePlayerController()
+{
+	// set the player camera manager class
+	PlayerCameraManagerClass = AInventoryGameCameraManager::StaticClass();
+}
 
 void AInventoryGamePlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
 
-	// Add Input Mapping Contexts
+	// Add Input Mapping Context
 	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
 	{
 		for (UInputMappingContext* CurrentContext : DefaultMappingContexts)
