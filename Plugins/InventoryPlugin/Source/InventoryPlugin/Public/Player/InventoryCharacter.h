@@ -6,24 +6,30 @@
 #include "GameFramework/Character.h"
 #include "InventoryCharacter.generated.h"
 
+class UStorageComponent;
+
 UCLASS()
 class INVENTORYPLUGIN_API AInventoryCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
 	AInventoryCharacter();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Inventory)
+	TObjectPtr<UStorageComponent> StorageComponent;
+
+	virtual FVector GetCameraLocation() { return FVector(); }
+	virtual FRotator GetCameraRotation() { return FRotator(); }
+
+	UFUNCTION(BlueprintCallable, Category = Inventory)
+	virtual UStorageComponent* GetInventory() const { return StorageComponent; }
+
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
+public:
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 };

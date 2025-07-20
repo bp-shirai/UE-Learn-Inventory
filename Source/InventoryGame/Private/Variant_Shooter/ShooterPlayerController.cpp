@@ -1,6 +1,5 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-
 #include "Variant_Shooter/ShooterPlayerController.h"
 #include "EnhancedInputSubsystems.h"
 #include "Engine/LocalPlayer.h"
@@ -36,7 +35,7 @@ void AShooterPlayerController::OnPossess(APawn* InPawn)
 	Super::OnPossess(InPawn);
 
 	// subscribe to the pawn's OnDestroyed delegate
-	InPawn->OnDestroyed.AddDynamic(this, &AShooterPlayerController::OnPawnDestroyed);
+	InPawn->OnDestroyed.AddDynamic(this, &ThisClass::OnPawnDestroyed);
 
 	// is this a shooter character?
 	if (AShooterCharacter* ShooterCharacter = Cast<AShooterCharacter>(InPawn))
@@ -45,7 +44,7 @@ void AShooterPlayerController::OnPossess(APawn* InPawn)
 		ShooterCharacter->Tags.Add(PlayerPawnTag);
 
 		// subscribe to the pawn's bullet count updated delegate
-		ShooterCharacter->OnBulletCountUpdated.AddDynamic(this, &AShooterPlayerController::OnBulletCountUpdated);
+		ShooterCharacter->OnBulletCountUpdated.AddDynamic(this, &ThisClass::OnBulletCountUpdated);
 	}
 }
 
